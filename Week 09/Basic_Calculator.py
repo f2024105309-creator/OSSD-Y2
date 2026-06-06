@@ -12,19 +12,20 @@ def calculate(operation):
         elif operation == "mul":
             result = num1 * num2
         elif operation == "div":
-            result = num1 / num2
+            if num2 == 0:
+                result = "Cannot divide by zero"
+            else:
+                result = num1 / num2
 
         result_label.config(text=f"Result: {result}")
 
-    except Exception as e:
-        result_label.config(text="Error")
+    except:
+        result_label.config(text="Invalid input")
 
 # Main Window
 root = tk.Tk()
 root.title("Simple Calculator")
 root.geometry("300x300")
-
-#Widgets
 
 # Inputs
 tk.Label(root, text="Enter first number").pack()
@@ -42,7 +43,7 @@ tk.Button(root, text="Multiply", command=lambda: calculate("mul")).pack(pady=5)
 tk.Button(root, text="Divide", command=lambda: calculate("div")).pack(pady=5)
 
 # Result
-result_label = tk.Label(root, text="Result: ")
+result_label = tk.Label(root, text="Result:")
 result_label.pack(pady=10)
 
 root.mainloop()
