@@ -17,16 +17,14 @@ def calculate():
         entry.delete(0, tk.END)
         entry.insert(tk.END, "Error")
 
-# Window Frame Root
+# Window
 root = tk.Tk()
 root.title("Advanced Calculator")
 root.geometry("320x380")
 root.resizable(0, 0)
 root.configure(bg="#95adea")
-root.iconphoto(False, tk.PhotoImage(file="im.png"))
 
-
-# Display Entry
+# Display
 entry = tk.Entry(root, font=("Arial", 20), bd=10, relief=tk.RIDGE, justify="right")
 entry.grid(row=0, column=0, columnspan=4)
 
